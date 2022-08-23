@@ -55,6 +55,7 @@ ram[172] = 8'd51;
 ## Resources
 
 * You can use the `run.py` code in the `IO_Code` directory to filter and down sample the image using python.
+* Block Diagrams and Final Report are included in the `Block_Diagram` and `Documentation` folders respectively.
 
 ### Contributors
 
