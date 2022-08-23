@@ -1,0 +1,173 @@
+loadim
+16'd257     // Starting from 257th bit (2nd row, 2nd bit)
+movacr1
+movr1ac     // Start of the filtering loop
+loadac
+movacr      // R <- middle
+loadim
+8'd2        // To multiply by 4
+lshift
+movacr4     // R4 <- middle*4
+loadim
+8'd1        // To get right and left bits
+movacr
+movr1ac
+add
+loadac
+movacr5     // R5 <- right
+movr1ac
+sub
+loadac
+movacr
+movr5ac
+add
+movacr5     // R5 <- right + left
+loadim
+16'd256     // To get bottom bit
+movacr
+movr1ac
+add
+loadac
+movacr
+movr5ac
+add
+movacr5     // R5 <- right + left + bottom
+loadim
+16'd256     // To get top bit
+movacr
+movr1ac
+sub
+loadac
+movacr
+movr5ac
+add
+movacr      // R <- right + left + bottom + top
+loadim
+8'd1        // To multiply by 2
+lshift
+movacr      // R <- (right + left + bottom + top)*2
+movr4ac
+add
+movacr4     // R4 <- middle*4 + (right + left + bottom + top)*2
+loadim
+16'd257     // To get bottom_right and top_left bits
+movacr
+movr1ac
+add
+loadac
+movacr5     // R5 <- bottom_right
+movr1ac
+sub
+loadac
+movacr
+movr5ac
+add
+movacr5     // R5 <- bottom_right + top_left
+loadim
+8'd255      // To get bottom_left bit
+movacr
+movr1ac
+add
+loadac
+movacr
+movr5ac
+add
+movacr5     // R5 <- bottom_right + top_left + bottom_left
+loadim
+8'd255      // To get top_right bit
+movacr
+movr1ac
+sub
+loadac
+movacr
+movr5ac
+add
+movacr      // R <- bottom_right + top_left + bottom_left + top_right
+movr4ac
+add
+movacr      // R <- middle*4 + (right + left + bottom + top)*2 + (bottom_right + top_left + bottom_left + top_right)
+loadim
+8'd4        // To divide by 16
+rshift
+movacr4     // R4 <- (middle*4 + (right + left + bottom + top)*2 + (bottom_right + top_left + bottom_left + top_right))/16
+loadim
+16'd257     // To find store location
+movacr
+movr1ac
+sub
+movacdar
+movr4ac
+stac
+loadim
+16'd65278   // To check end of the image ((256*254) + (255-1))
+movacr
+movr1ac
+sub
+jumpz
+8'd127      // Go to the start of downscaling
+loadim
+8'd253      // To check end of the row
+movacr
+movr2ac
+sub
+jumpz
+8'd118
+incr1
+incr2
+jump
+8'd3
+incr1
+incr1
+incr1
+loadim
+8'd0
+movacr2
+jump
+8'd3        // Go to the start of the filtering loop
+endop
+loadim      // Start of downscaling
+8'd0
+movacr1     // R1 <- 0,   R1 = Keep track of current pixel
+movacr2     // R2 <- 0,   R2 = Keep track of current row pixel
+movacr3     // R3 <- 0,   R3 = Keep track of store location
+movr1ac     // Start of the downscaling loop
+loadac
+movacr4
+movr3ac
+movacdar 
+movr4ac
+stac
+movr1ac 
+movacr
+loadim
+16'd65278   // To check end of the image ((256*254) + (255-1))
+sub
+jumpz
+8'd172      // Go to end process
+movr2ac
+movacr
+loadim
+8'd254      // To check end of the row
+sub
+jumpz
+8'd160
+incr2
+incr2
+incr1
+incr1
+incr3
+jump
+8'd132      // Go to the start of the downscaling loop
+loadim
+8'd0
+movacr2
+loadim
+16'd258     // To skip a row (256 + 2)
+movacr
+movr1ac
+add
+movacr1
+incr3
+jump
+8'd132      // Go to the start of the downscaling loop
+endop       // End process
