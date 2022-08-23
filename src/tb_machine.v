@@ -20,7 +20,7 @@ module tb_machine();
     end
     
     initial begin
-        $readmemb("image.txt", read_data);
+        $readmemb("input.txt", read_data);
         f = $fopen("output_downscaled.txt", "w");
 //        f = $fopen("output_filtered.txt", "w");
         status = 2'b10;
