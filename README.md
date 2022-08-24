@@ -55,8 +55,8 @@ ram[172] = 8'd51;
 
 ## Resources
 
-* You can use the `run.py` code in the `IO_Code` directory to filter and down sample the image using python.
-* Block Diagrams and Final Report are included in the `Block_Diagram` and `Documentation` folders respectively.
+* You can use the [`run.py`](IO_Code/run.py) code in the `IO_Code` directory to filter and down sample the image using python.
+* [Block Diagrams](Block_Diagram) and [Final Report](Documentation/CSD_Processor_Design_Report.pdf) are included in the `Block_Diagram` and `Documentation` folders respectively.
 
 ### Contributors
 
