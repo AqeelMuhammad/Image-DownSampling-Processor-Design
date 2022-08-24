@@ -2,9 +2,10 @@
 
 ## About The Project
 
-This repository includes all the project files related to the development of a `Custom processor in Verilog HDL` for image downsampling. The project was done by a team of 4 undergraduates at the Department of Electronic and Telecommunication Engineering, University of Moratuwa, Sri Lanka. It was done as a pratial fulfillment of the requirements of UOM's EN3030 Circuits and Systems Design module.
-
-The primary objective of this project was to design a Microprocessor and a CPU (Central Processing Unit) which can downsample a given `256x256` greyscale 8-bit image and generate correct results. The coding was done using Verilog Hardware Description Language (HDL).   `Xilinx Vivado` was used as the analysis and synthesis tool for the design of the processor and for the simulation of Verilog HDL designs.
+* This repository includes all the project files related to the development of a custom processor in Verilog HDL for image downsampling. 
+* The project was done by a team of 4 undergraduates at the Department of Electronic and Telecommunication Engineering, University of Moratuwa, Sri Lanka for UOM's EN3030 Circuits and Systems Design module.
+* The primary objective of this project was to design a processor which can downsample a given `256x256` greyscale 8-bit image. The coding was done using Verilog Hardware Description Language (HDL).  
+* `Xilinx Vivado` was used as the analysis and synthesis tool for the design of the processor and for the simulation of Verilog HDL designs.
 
 |*Original Image*|*Filtered Image*|*Down Sampled Image*|
 |:----:|:----:|:----:|
