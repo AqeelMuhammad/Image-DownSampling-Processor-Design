@@ -63,4 +63,4 @@ ram[172] = 8'd51;
 1. [Muhammad Aqeel](https://github.com/AqeelMuhammad)
 1. [Navindu Rasanjana](https://github.com/NavinduRasanjana)
 1. [Tharuka Nilupul](https://github.com/TharukaN17)
-1. [Hasantha Nadeeshan]()
+1. [Hasantha Nadeeshan](https://github.com/hasantha-nadeeshan)
